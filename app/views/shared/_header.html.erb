@@ -1,0 +1,31 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='top-page-header'>
+  <div class='search-bar-contents'>
+    <%= link_to "Nutrik", "/", class:"furima-icon" %>
+    <form class="search-form" action="#">
+      <input class='input-box' placeholder='キーワードから探す'>
+      <button class="search-button">
+        <%= image_tag "search.png", class:"search-icon" %>
+      </button>
+    </form>
+  </div>  
+  <div class='lists-right'>
+    <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
+    <%# <li><%= link_to 'マイページ', "#", class: "user-nickname" </li> %>
+    <%# <li><%= link_to 'ログアウト', "#", method: :delete, class: "logout" </li> %>
+    <%# //deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
+    <div class='login'>
+      <%= link_to "#" do %>
+        <%= image_tag("login.png") %>
+        <div>ログイン</div>
+      <% end %>
+    </div>
+    <div class='sign_up'>
+      <li><%= link_to "#" do %>
+      <%= image_tag("sign_up.png") %>
+      <div>新規登録</div>
+      <% end %>
+      </li>
+    </div>
+  </div>  
+</header>
