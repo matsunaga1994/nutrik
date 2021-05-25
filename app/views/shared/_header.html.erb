@@ -10,22 +10,32 @@
     </form>
   </div>  
   <div class='lists-right'>
-    <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
-    <%# <li><%= link_to 'マイページ', "#", class: "user-nickname" </li> %>
-    <%# <li><%= link_to 'ログアウト', "#", method: :delete, class: "logout" </li> %>
-    <%# //deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
-    <div class='login'>
-      <%= link_to "#" do %>
-        <%= image_tag("login.png") %>
-        <div>ログイン</div>
-      <% end %>
-    </div>
-    <div class='sign_up'>
-      <li><%= link_to "#" do %>
-      <%= image_tag("sign_up.png") %>
-      <div>新規登録</div>
-      <% end %>
-      </li>
-    </div>
+    <% if user_signed_in? %>
+      <div class='my-page'>
+        <%= link_to "#" do %>
+          <%= image_tag("mypage.png") %>
+          <div>マイページ</div>
+        <% end %>
+      </div>
+      <div class='logout'>
+        <%= link_to "#", method: :delete  do %>
+          <%= image_tag("logout.png") %>
+          <div>ログアウト</div>
+        <% end %>  
+      </div>
+    <% else %>  
+      <div class='login'>
+        <%= link_to new_user_session_path do %>
+          <%= image_tag("login.png") %>
+          <div>ログイン</div>
+        <% end %>
+      </div>
+      <div class='sign_up'>
+        <%= link_to new_user_registration_path do %>
+          <%= image_tag("sign_up.png") %>
+          <div>新規登録</div>
+        <% end %>
+      </div>
+    <% end %>  
   </div>  
 </header>
