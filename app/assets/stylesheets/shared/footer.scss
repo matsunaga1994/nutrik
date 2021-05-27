@@ -1,29 +1,34 @@
 .footer {
-  width: 100vw;
-  padding: 5vh 0;
-  color: #FFF;
-  background-color: #272727;
+  padding: 3vh 0;
+  color:black;
   text-align: center;
+}
+
+.footer-main {
+  display: flex;
+  background-color:#f5f5f5; 
+  align-items: center;
+  justify-content: center;
 }
 
 .footer-contents {
   display: flex;
   justify-content: center;
-  margin-bottom: 5vh;
+  margin-bottom: 3vh;
 }
 
 .footer-link {
-  color: #FFF;
+  color:black;
   font-size: 12px;
   line-height: 30px;
   margin-right: 5vh;
 }
 
-.logo-white {
-  width: 20vh;
+.logo-footer {
+  width: 15vh;
   vertical-align: bottom;
 }
 
 .footer>p {
   font-size: 14px;
-}
+} 
