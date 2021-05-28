@@ -10,7 +10,7 @@
   border: 1px solid orange;
   color: #fff;
   line-height: 48px;
-  font-size: 14px;
+  font-size: 20px;
   cursor: pointer;
   border-radius: 4px;
 }
@@ -18,5 +18,40 @@
 .login-flash-message {
   text-align: center;
   color: red;
+}
 
+.or {
+  width: 50%;
+  line-height: 48px;
+  text-align: center;
+  background-color: white;
+  margin: 25px auto;
+}
+
+.btn-google {
+  width: 50%;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  background-color: #4285F4;
+  margin: 25px auto;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 48px;
+}
+
+.btn-facebook {
+  width: 50%;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  background-color:#5890FF;
+  margin: 25px auto;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 48px;
+}
+
+.sns-login {
+  height: 48px;
 }

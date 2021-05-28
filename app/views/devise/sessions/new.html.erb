@@ -28,6 +28,23 @@
   <div class='login-btn'>
     <%= f.submit "ログイン" ,class:"login-orange-btn" %>
   </div>
+
+  <div class="sns-login">
+    <div class="or">OR</div>
+  </div>  
+
+  <div class="sns-login">
+    <%= link_to user_facebook_omniauth_authorize_path, method: :post do %>
+      <div class="btn-facebook">Facebookアカウントでログイン</div>
+    <% end %>
+  </div>  
+
+  <div class="sns-login">
+  <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post do %>
+    <div class="btn-google">Googleアカウントでログイン</div>
+  <% end %>
+  </div>
+
 </div>
 <% end %>
 
