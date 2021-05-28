@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   
   with_options presence: true do
     validates :nickname
@@ -27,4 +27,6 @@ class User < ApplicationRecord
     validates :family_name_kana
     validates :first_name_kana
   end
+
+  has_many :sns_credentials
 end
