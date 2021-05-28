@@ -22,7 +22,7 @@
         <% end %>
       </div>
       <div class='logout'>
-        <%= link_to "#", method: :delete  do %>
+        <%= link_to destroy_user_session_path, method: :delete  do %>
           <%= image_tag("logout.png") %>
           <div>ログアウト</div>
         <% end %>  
