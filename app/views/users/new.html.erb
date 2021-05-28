@@ -1,0 +1,33 @@
+<%= render "shared/second-header"%>
+<div class="sign-up-main">
+  <div class='sign-up-wrap'>
+    <div class='sign-up-header'>
+      <h1 class='sign-up-header-text'>
+        新規登録
+      </h1>
+    </div>
+
+    <div class="sns-sign-up">
+      <%= link_to new_user_registration_path do %>
+        <div class="btn-mail">メールアドレスで登録</div>
+      <% end %>
+    </div>
+
+    <div class="sns-sign-up">
+      <div class="or">OR</div>
+    </div>  
+
+    <div class="sns-sign-up">
+      <%= link_to user_facebook_omniauth_authorize_path, method: :post do %>
+        <div class="btn-facebook">Facebookアカウントで登録</div>
+      <% end %>
+    </div>  
+
+    <div class="sns-sign-up">
+      <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post do %>
+        <div class="btn-google">Googleアカウントで登録</div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer"%>

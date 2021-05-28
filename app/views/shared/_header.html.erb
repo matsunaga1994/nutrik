@@ -22,7 +22,7 @@
         <% end %>
       </div>
       <div class='logout'>
-        <%= link_to "#", method: :delete  do %>
+        <%= link_to destroy_user_session_path, method: :delete  do %>
           <%= image_tag("logout.png") %>
           <div>ログアウト</div>
         <% end %>  
@@ -35,7 +35,7 @@
         <% end %>
       </div>
       <div class='sign_up'>
-        <%= link_to new_user_registration_path do %>
+        <%= link_to new_user_path do %>
           <%= image_tag("sign_up.png") %>
           <div>新規登録</div>
         <% end %>
