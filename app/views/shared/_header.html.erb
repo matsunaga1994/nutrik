@@ -1,9 +1,13 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
+  <div class='nutrik-icon'>
+    <%= link_to "/" do %>
+      <%= image_tag("logo.png", class: "main-logo")%>
+    <% end %>  
+  </div>
   <div class='search-bar-contents'>
-    <%= link_to "Nutrik", "/", class:"furima-icon" %>
     <form class="search-form" action="#">
-      <input class='input-box' placeholder='キーワードから探す'>
+      <input class='input-box' placeholder='料理名で検索'>
       <button class="search-button">
         <%= image_tag "search.png", class:"search-icon" %>
       </button>

@@ -9,7 +9,8 @@
   display: flex;
   z-index: 5;
   position: fixed;
-  background-color: white;
+  background-color:#f5f5f5;
+  align-items: center;
 }
 
 .search-bar-contents {
@@ -18,9 +19,13 @@
   align-items: center;
 }
 
-.furima-icon {
+.nutrik-icon {
   width: 10vw;
   margin-right: 5vw;
+}
+
+.main-logo {
+  width: 65%;
 }
 
 .search-form {

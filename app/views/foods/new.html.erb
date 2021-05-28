@@ -1,0 +1,104 @@
+<%= render "shared/header" %>
+<%= form_with local: true do |f| %>
+  <div class="items-sell-contents">
+    <div class="items-sell-main">
+      <h2 class="items-sell-title">レシピ投稿</h2>
+      <div class="weight-bold-text new-items">
+        レシピタイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      
+      <%#= render 'shared/error_messages', model: f.object %>
+      <div class="recipe-post-low">
+        <%# 料理画像 %>
+        <div class="img-upload">
+          <div class="weight-bold-text">
+            商品画像
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="click-upload">
+            <p>
+              クリックしてファイルをアップロード
+            </p>
+            <%= f.file_field :image, id:"item-image" %>
+          </div>
+        </div>
+        <%# /料理画像 %>
+
+        <%# 調理時間・費用目安 %>
+        <div class="items-detail">
+          <div class="form">
+            <div class="weight-bold-text">
+              調理時間
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.collection_select(:time_id, [], :hoge, :hoge, {}, {class:"select-box", id:"time-category"}) %>
+            <div class="weight-bold-text">
+              費用目安
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.collection_select(:cost_id, [], :hoge, :hoge, {}, {class:"select-box", id:"cost-category"}) %>
+          </div>
+        </div>
+        <%# /調理時間・費用目安 %>
+      </div>
+
+      <%# レシピコメント %>
+      <div class="new-items">
+        <div class="items-explain">
+          <div class="weight-bold-text">
+            レシピコメント
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :hoge, class:"items-text", id:"item-info", placeholder:"例） おもてなしにぴったりです！意外と手間がかかりません！" ,rows:"4" ,maxlength:"100" %>
+        </div>
+      </div>
+      <%# /レシピコメント %>
+
+      <%# 材料 %>
+ 
+        <div class="weight-bold-text">
+          <span>材料</span>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="items-detail">
+          <%= f.text_area :category, class:"ingredient-text", id:"ingredient-name", placeholder:"例）にんじん", maxlength:"20" %>
+          <div class="form">
+            <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+          </div>
+        </div>
+      <%# /材料 %>
+
+      <%# 商品名と商品説明 %>
+      <div class="new-items">
+        <div class="items-explain">
+          <div class="weight-bold-text">
+            作り方
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :hoge, class:"items-text", id:"item-info", placeholder:"例） おもてなしにぴったりです！意外と手間がかかりません！" ,rows:"4" ,maxlength:"100" %>
+        </div>
+        
+      </div>
+      <%# /商品名と商品説明 %>
+
+      <%# 注意書き %>
+      <div class="caution">
+        <%= check_box_tag :caution %>
+        <%= label_tag :caution do %>
+          <a href= "#", class="guideline">ガイドライン</a>をよく読んで理解した
+        <% end %>
+      </div>
+      <%# /注意書き %>
+
+      <%# 下部ボタン %>
+      <div class="post-btn-contents">
+        <%= f.submit "投稿する" ,class:"post-btn" %>
+        <%= link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+      <%# /下部ボタン %>
+    </div>
+  </div>
+<% end %>
+<%= render "shared/footer" %>
