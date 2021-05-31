@@ -7,7 +7,7 @@
         レシピタイトル
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"料理名（必須 40文字まで)", maxlength:"40" %>
       
       <%#= render 'shared/error_messages', model: f.object %>
       <div class="recipe-post-low">
@@ -38,7 +38,7 @@
               費用目安
               <span class="indispensable">必須</span>
             </div>
-            <%= f.collection_select(:cost_id, [], :hoge, :hoge, {}, {class:"select-box", id:"cost-category"}) %>
+            <%= f.collection_select(:cost_id, Cost.all, :id, :name, { include_blank: "選択してください" }, {class:"select-box", id:"cost-category"}) %>
           </div>
         </div>
         <%# /調理時間・費用目安 %>
