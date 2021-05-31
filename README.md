@@ -24,7 +24,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | title         | string     | null: false                    |
-| food_time_id  | integer    | null: false                    |
+| cook_time_id  | integer    | null: false                    |
 | cost_id       | integer    | null: false                    |
 | comment       | text       | null: false                    |
 | user          | references | null: false, foreign_key: true |
@@ -66,7 +66,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | name          | string     | null: false                    |
-| category_id   | integer    | null: false                    |
+| food_group_id | integer    | null: false                    |
 | food          | references | null: false, foreign_key: true |
 
 ### Association
