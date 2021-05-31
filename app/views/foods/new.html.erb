@@ -33,7 +33,7 @@
               調理時間
               <span class="indispensable">必須</span>
             </div>
-            <%= f.collection_select(:cook_time_id, CookTime.all, :id, :name, { include_blank: "選択してください" }, {class:"select-box", id:"cook-time"}) %>
+            <%= f.collection_select(:cook_time_id, CookTime.all, :id, :name, { include_blank: "選択してください" }, {class:"select-box", id:"cook-time-category"}) %>
             <div class="weight-bold-text">
               費用目安
               <span class="indispensable">必須</span>
@@ -63,14 +63,14 @@
           <span class="indispensable">必須</span>
         </div>
         <div class="items-detail">
-          <%= f.text_area :category, class:"ingredient-text", id:"ingredient-name", placeholder:"例）にんじん", maxlength:"20" %>
+          <%= f.text_area :name, class:"ingredient-text", id:"ingredient-name", placeholder:"例）にんじん", maxlength:"20" %>
           <div class="form">
-            <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+            <%= f.collection_select(:food_group_id, FoodGroup.all, :id, :name, { include_blank: "選択してください" }, {class:"select-box", id:"food-group-category"}) %>
           </div>
         </div>
       <%# /材料 %>
 
-      <%# 商品名と商品説明 %>
+      <%# 作り方 %>
       <div class="new-items">
         <div class="items-explain">
           <div class="weight-bold-text">
@@ -79,9 +79,8 @@
           </div>
           <%= f.text_area :hoge, class:"items-text", id:"item-info", placeholder:"例） おもてなしにぴったりです！意外と手間がかかりません！" ,rows:"4" ,maxlength:"100" %>
         </div>
-        
       </div>
-      <%# /商品名と商品説明 %>
+      <%# /作り方 %>
 
       <%# 注意書き %>
       <div class="caution">
