@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(version: 2021_05_28_080429) do
     t.integer "time_id", null: false
     t.integer "cost_id", null: false
     t.text "comment", null: false
-    t.text "ingredient", null: false
-    t.text "recipe", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
