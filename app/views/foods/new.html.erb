@@ -33,7 +33,7 @@
               調理時間
               <span class="indispensable">必須</span>
             </div>
-            <%= f.collection_select(:time_id, [], :hoge, :hoge, {}, {class:"select-box", id:"time-category"}) %>
+            <%= f.collection_select(:cook_time_id, CookTime.all, :id, :name, { include_blank: "選択してください" }, {class:"select-box", id:"cook-time"}) %>
             <div class="weight-bold-text">
               費用目安
               <span class="indispensable">必須</span>

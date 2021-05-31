@@ -1,4 +1,4 @@
 class Food < ApplicationRecord
-  extend ActiveHash::Association::ActiveRecordExtensions
-  belongs_to :time
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :cook_time
 end

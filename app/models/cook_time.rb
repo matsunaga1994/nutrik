@@ -1,4 +1,4 @@
-class Time < ActiveHash::Base
+class CookTime < ActiveHash::Base
   self.data = [
     { id: 1, name: '5分以内' },
     { id: 2, name: '約10分' },
