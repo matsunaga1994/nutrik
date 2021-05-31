@@ -17,6 +17,7 @@
 
 - has_many :foods
 - has_many :likes
+- has_many :sns_credentials
 
 ## foods テーブル
  
@@ -26,16 +27,30 @@
 | time_id       | integer    | null: false                    |
 | cost_id       | integer    | null: false                    |
 | comment       | text       | null: false                    |
-| ingredient    | text       | null: false                    |
-| recipe        | text       | null: false                    |
-|               |            | null: false                    |
-|               |            | null: false                    |
 | user          | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - has_many :likes
+- has_many :ingredients
+- has_many :recipes
+
+
+## ingredients テーブル
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| title         | string     | null: false                    |
+| time_id       | integer    | null: false                    |
+| cost_id       | integer    | null: false                    |
+| comment       | text       | null: false                    |
+| user          | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- has_many :likes
+
 
 ## likes テーブル
 
@@ -47,4 +62,27 @@
 ### Association
 
 - belongs_to :user
+- belongs_to :food
+
+
+## ingredients テーブル
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| name          | string     | null: false                    |
+| category_id   | integer    | null: false                    |
+| food          | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :food
+
+
+## recipes テーブル
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| text          | text       | null: false                    |
+| food          | references | null: false, foreign_key: true |
+
+### Association
+
 - belongs_to :food
