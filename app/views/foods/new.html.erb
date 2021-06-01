@@ -1,4 +1,5 @@
 <%= render "shared/header" %>
+
 <%= form_with local: true do |f| %>
   <div class="foods-menu-contents">
     <div class="foods-menu-main">
@@ -12,7 +13,6 @@
       <%#= render 'shared/error_messages', model: f.object %>
       
       <div class="recipe-post-low">
-
         <%# 料理画像 %>
         <div class="img-upload">
           <div class="weight-bold-text">
@@ -71,7 +71,9 @@
             <%= f.collection_select(:food_group_id, FoodGroup.all, :id, :name, { include_blank: "選択してください" }, {class:"second-select-box", id:"food-group-category"}) %>
           </div>
           <div class="except-btn-ingredient">
-            <input type="button" value="削除" class="except-btn" >
+            <button type="button" class="except-btn" id="except-btn">
+              <%= image_tag("trash.png") %>
+            </button>
           </div>
         </div>
         <div class="add-btn-content">
@@ -90,7 +92,9 @@
             <%= f.text_area :hoge, class:"recipe-text", id:"food-recipe", placeholder:"例） 玉ねぎは１cmの厚さの輪切りにし、小麦粉大さじ１をまぶす。" ,rows:"4" ,maxlength:"100" %>
           </div> 
           <div class="except-btn-ingredient">
-            <input type="button" value="削除" class="except-btn" >
+            <button type="button" class="except-btn" id="except-btn">
+              <%= image_tag("trash.png") %>
+            </button>
           </div>
         </div>  
       </div>
