@@ -29,6 +29,7 @@ class User < ApplicationRecord
   end
 
   has_many :sns_credentials
+  has_many :foods
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
