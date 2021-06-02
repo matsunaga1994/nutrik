@@ -1,19 +1,24 @@
 <%= render "shared/header" %>
 
-<%= form_with local: true do |f| %>
+<%= form_with model: @food, url: foods_path, local: true do |f| %>
   <div class="foods-menu-contents">
     <div class="foods-menu-main">
       <h2 class="foods-menu-title">レシピ投稿</h2>
+      
+      <%= render 'shared/error_messages', model: f.object %>
+
       <div class="weight-bold-text new-foods">
         レシピタイトル
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :title, class:"foods-text", id:"food-name", placeholder:"料理名（必須 40文字まで)", maxlength:"40" %>
       
-      <%#= render 'shared/error_messages', model: f.object %>
+
       
       <div class="recipe-post-low">
+
         <%# 料理画像 %>
+
         <div class="img-upload">
           <div class="weight-bold-text">
             商品画像
@@ -26,6 +31,7 @@
             <%= f.file_field :image, id:"foods-image" %>
           </div>
         </div>
+
         <%# /料理画像 %>
 
         <%# 調理時間・費用目安 %>
@@ -35,63 +41,69 @@
               調理時間
               <span class="indispensable">必須</span>
             </div>
-            <%= f.collection_select(:cook_time_id, CookTime.all, :id, :name, { include_blank: "選択してください" }, {class:"select-box", id:"cook-time-category"}) %>
+            <%= f.collection_select(:cook_time_id, CookTime.all, :id, :name, { include_blank: "選択してください" }, {class:"select-box"}) %>
             <div class="weight-bold-text">
               費用目安
               <span class="indispensable">必須</span>
             </div>
-            <%= f.collection_select(:cost_id, Cost.all, :id, :name, { include_blank: "選択してください" }, {class:"select-box", id:"cost-category"}) %>
+            <%= f.collection_select(:cost_id, Cost.all, :id, :name, { include_blank: "選択してください" }, {class:"select-box"}) %>
           </div>
         </div>
         <%# /調理時間・費用目安 %>
       </div>
 
       <%# レシピコメント %>
-      <div class="new-foods">
+
         <div class="foods-explain">
           <div class="weight-bold-text">
             レシピコメント
             <span class="indispensable">必須</span>
           </div>
-          <%= f.text_area :hoge, class:"foods-text", id:"food-comment", placeholder:"例） おもてなしにぴったりです！意外と手間がかかりません！" ,rows:"4" ,maxlength:"100" %>
+          <%= f.text_area :comment, class:"foods-text", id:"food-comment", placeholder:"例） おもてなしにぴったりです！意外と手間がかかりません！" ,rows:"4" ,maxlength:"100" %>
         </div>
-      </div>
+
       <%# /レシピコメント %>
 
       <%# 食材 %>
+
         <div class="weight-bold-text">
           <span>食材</span>
           <span class="indispensable">必須</span>
         </div>
-        <div class="ingredient-detail">
-          <div class="form">          
-            <%= f.text_area :name, class:"ingredient-text", id:"ingredient-name", placeholder:"例）にんじん", maxlength:"20" %>
-          </div>  
-          <div class="form">
-            <%= f.collection_select(:food_group_id, FoodGroup.all, :id, :name, { include_blank: "選択してください" }, {class:"second-select-box", id:"food-group-category"}) %>
-          </div>
-          <div class="except-btn-ingredient">
-            <button type="button" class="except-btn" id="except-btn">
-              <%= image_tag("trash.png") %>
-            </button>
+
+        <div id="ingredient-main">
+          <div class="ingredient-detail" id="ingredient-detail">
+            <div class="form">          
+              <%= f.text_area :name, name: "food_ingredient_recipe[name][]", class:"ingredient-text", placeholder:"例）にんじん", maxlength:"20" %>
+            </div>  
+            <div class="form">
+              <%= f.collection_select(:food_group_id, FoodGroup.all, :id, :name, { include_blank: "選択してください" }, {class:"second-select-box", name: "food_ingredient_recipe[food_group_id][]"}) %>
+            </div>
+            <div class="except">
+              <button type="button" class="except-btn" id="except-btn">
+                <%= image_tag("trash.png") %>
+              </button>
+            </div>
           </div>
         </div>
+
         <div class="add-btn-content">
-          <input type="button" value="＋ 食材を追加する" class="add-btn" >
+          <input type="button" value="＋ 食材を追加する" class="add-btn" id="add-ingredient-btn">
         </div>
+
       <%# /食材 %>
 
       <%# 作り方 %>
-      <div class="foods-explain">
+      <div class="foods-explain" id="recipe-main">
         <div class="weight-bold-text">
           作り方
           <span class="indispensable">必須</span>
         </div>
-        <div class="recipe">
+        <div class="recipe" id="food-recipe">
           <div class="form">
-            <%= f.text_area :hoge, class:"recipe-text", id:"food-recipe", placeholder:"例） 玉ねぎは１cmの厚さの輪切りにし、小麦粉大さじ１をまぶす。" ,rows:"4" ,maxlength:"100" %>
+            <%= f.text_area :text, name: "food_ingredient_recipe[text][]", class:"recipe-text", placeholder:"例） 玉ねぎは１cmの厚さの輪切りにし、小麦粉大さじ１をまぶす。" ,rows:"4" ,maxlength:"100" %>
           </div> 
-          <div class="except-btn-ingredient">
+          <div class="except">
             <button type="button" class="except-btn" id="except-btn">
               <%= image_tag("trash.png") %>
             </button>
@@ -99,7 +111,7 @@
         </div>  
       </div>
       <div class="add-btn-content">
-        <input type="button" value="＋ 作り方を追加する" class="add-btn" >
+        <input type="button" value="＋ 作り方を追加する" class="add-btn" id="add-recipe-btn" >
       </div>
       <%# /作り方 %>
 
@@ -114,7 +126,7 @@
 
       <%# 下部ボタン %>
       <div class="post-btn-contents">
-        <%= f.submit "投稿する" ,class:"post-btn" %>
+        <%= f.submit "投稿する", class:"post-btn" %>
         <%= link_to 'もどる', root_path, class:"back-btn" %>
       </div>
       <%# /下部ボタン %>
