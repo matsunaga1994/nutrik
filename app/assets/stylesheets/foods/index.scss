@@ -52,7 +52,7 @@ a {
 }
 
 .feature-contents {
-  padding: 5vh 15vw;
+  padding: 5vh 12vw;
   background-color: #fff;
 }
 
@@ -92,9 +92,9 @@ a {
 
 /* //Nutrikの特徴 */
 
-/* 商品一覧 */
+/* 料理一覧 */
 
-.item-contents {
+.food-contents {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,48 +102,51 @@ a {
   background-color: #fff;
 }
 
-.item-contents>.title {
+.food-contents>.title {
   font-size: 3.5vh;
   line-height: 1.4;
   font-weight: bold;
   padding: 16px 24px;
   background-color:#f5f5f5;
+  width: 70%;
+  text-align: center;
+  margin-bottom: 5vh;
 }
 
-.item-lists {
+.food-lists {
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.item-lists>.list {
+.food-lists>.list {
   width: 37vh;
   padding: 1vw;
   background-color: #FFF;
 }
 
 
-.item-img-content {
+.food-img-content {
   position: relative;
 }
 
-.item-img {
+.food-img {
   width: 33vh;
   height: 33vh;
 }
 
-.item-info {
+.food-info {
   background-color: #FFF;
   color: black;
   padding: 1vw;
 }
 
-.item-name {
+.food-name {
   font-size: 2.5vh;
 }
 
-.item-price {
+.food-time-cost {
   font-size: 1.5vh;
   display: flex;
   justify-content: space-between;
@@ -165,4 +168,4 @@ a {
   font-size: 2vh;
 }
 
-/* //商品一覧 */
+/* //料理一覧 */
