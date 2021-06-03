@@ -24,7 +24,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | title         | string     | null: false                    |
-| time_id       | integer    | null: false                    |
+| cook_time_id  | integer    | null: false                    |
 | cost_id       | integer    | null: false                    |
 | comment       | text       | null: false                    |
 | user          | references | null: false, foreign_key: true |
@@ -37,19 +37,16 @@
 - has_many :recipes
 
 
-## ingredients テーブル
+## sns_credentials テーブル
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| title         | string     | null: false                    |
-| time_id       | integer    | null: false                    |
-| cost_id       | integer    | null: false                    |
-| comment       | text       | null: false                    |
+| provider      | string     | null: false                    |
+| uid           | string     | null: false                    |
 | user          | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :likes
 
 
 ## likes テーブル
@@ -69,7 +66,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | name          | string     | null: false                    |
-| category_id   | integer    | null: false                    |
+| food_group_id | integer    | null: false                    |
 | food          | references | null: false, foreign_key: true |
 
 ### Association

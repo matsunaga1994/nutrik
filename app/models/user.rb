@@ -16,7 +16,8 @@ class User < ApplicationRecord
 
   with_options format:{ with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]{6,}\z/i } do
     validates :password
-  end
+  end  
+
 
   with_options format:{ with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ } do
     validates :family_name
@@ -29,6 +30,7 @@ class User < ApplicationRecord
   end
 
   has_many :sns_credentials
+  has_many :foods
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create

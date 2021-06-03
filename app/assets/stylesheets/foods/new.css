@@ -1,11 +1,4 @@
-/* border-bottom: 1px solid #eee; */
-
-.recipe-post-low {
-  display: flex;
-}
-
-
-.items-sell-contents {
+.foods-menu-contents {
   background-color: #f5f5f5;
   font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
   font-size: 14px;
@@ -16,20 +9,30 @@
   padding-top: 10px;
 }
 
-.items-sell-main {
+.foods-menu-main {
   background-color: #FFF;
   width: 70vw;
   min-width: 450px;
   padding: 10vh 15vw;
 }
 
-.items-sell-title {
+.foods-menu-title {
   font-size: 22px;
   font-weight: bold;
   text-align: center;
 }
 
+.new-foods {
+  padding: 2vh 0;
+}
+
+.recipe-post-low {
+  display: flex;
+  width: 100%;
+}
+
 /* 共通 */
+
 .indispensable {
   background: orange;
   margin-left: 8px;
@@ -51,35 +54,52 @@
   width: 100%;
   background-color: #f5f5f5;
   padding-left: 20px;
+  margin: 2vh 0;
+  border-radius: 4px;
 }
 
 /* /共通 */
 
-/* 商品画像 */
+/* 料理画像 */
 .img-upload {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 2vh 0;
+  margin: 2vh 2vw 0 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
 }
 
 .click-upload {
   margin: 15px 0;
-  min-width: 250px;
+  width: 100%;
 }
 
 .click-upload>p {
   margin-bottom: 15px;
 }
 
-/* /商品画像 */
+/* /料理画像 */
 
-/* 商品名と商品説明 */
-.new-items {
+/* 調理時間・費用目安 */
+
+.foods-detail>.form {
+  width: 100%;
+  margin: 2vh 0;
+}
+.foods-detail {
+  width: 100%;
   padding: 2vh 0;
+  display: flex;
+  justify-content: center;
 }
 
-.items-text {
+/* /調理時間・費用目安 */
+
+/* レシピコメント */
+
+.foods-text {
   width: 100%;
   padding: 16px 16px 8px;
   border-radius: 4px;
@@ -88,39 +108,88 @@
   resize: none;
 }
 
-.items-explain {
+.foods-explain {
+  padding: 2vh 0;
   margin-top: 2vh;
+  padding: 2vh 0;
 }
 
-/* /商品名と商品説明 */
+/* /レシピコメント */
+
+/* 作り方 */
+.recipe {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2vh;
+}
+
+.recipe-text {
+  width: 37.25vw;
+  padding: 16px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+  margin-right: 1vw;
+}
+/* /作り方 */
+
+/* 材料 */
+
+.ingredient-detail {
+  display: flex;
+  align-items: center;
+}
 
 .ingredient-text {
-  width: 50%;
+  width: 100%;
   height: 30px;
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 16px;
   resize: none;
-  display: block;
+  padding-left: 10px;
 }
 
-/* 商品の詳細など */
-.items-detail {
-  padding: 2vh 0;
-  display: flex;
-  justify-content: center;
-}
-
-.items-detail>.form {
+.ingredient-detail>.form {
   width: 300px;
-  padding: 2vh 0;
+  margin: 2vh 1vw 2vh 0;
 }
 
-.select-box {
-  margin: 2vh 0;
+.second-select-box {
+  height: 30px;
+  width: 100%;
+  background-color: #f5f5f5;
+  padding-left: 10px;
+  border-radius: 4px;
 }
 
-/* /商品の詳細など */
+.add-btn-content {
+  width: 100%;
+  text-align: center;
+}
+
+.add-btn {
+  padding: 10px 12px;
+  color: orange;
+  border: 1px solid orange;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-btn:hover{
+  background-color:#FDF5E6;
+}
+
+.except-btn {
+  background-color: #FFF;
+  border: none;
+  cursor: pointer;
+}
+
+/* /材料 */
 
 /* 注意書き */
 .caution {
