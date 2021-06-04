@@ -62,24 +62,25 @@
       <% @foods.each do |food| %>
         <li class='list'>
           <%= link_to food_path(food.id) do %>
-          <div class='food-img-content'>
-            <%= image_tag food.image, class: "food-img" %>
-          </div>
-          <div class='food-info'>
-            <h3 class='food-name'>
-              <%= food.title %>
-            </h3>
-            <div class='food-time-cost'>
-              <span><%= food.cook_time.name %><br><%= food.cost.name %></span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
+            <div class='food-img-content'>
+              <%= image_tag food.image, class: "food-img" %>
+            </div>
+            <div class='food-info'>
+              <h3 class='food-name'>
+                <%= food.title %>
+              </h3>
+              <div class='food-time-cost'>
+                <span><%= food.cook_time.name %><br><%= food.cost.name %></span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </li>
       <% end %>  
-      </li>
+
 
       <%# 料理がない場合 %>
 

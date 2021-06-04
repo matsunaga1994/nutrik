@@ -1,9 +1,10 @@
-function add(){
+function add() {
   const addIngredient = document.getElementById("add-ingredient-btn");
   const addElement = document.getElementById("ingredient-detail");
   let ingredientText = document.getElementById("ingredient-main");
+  // const form = document.getElementById("food_ingredient_recipe_name")
 
-  addIngredient.addEventListener('click', function(){
+  addIngredient.addEventListener("click", function () {
     ingredientText.insertAdjacentHTML("beforeend", addElement.outerHTML);
   });
 
@@ -11,13 +12,13 @@ function add(){
   const addRecipeElement = document.getElementById("food-recipe");
   let recipeText = document.getElementById("recipe-main");
 
-  addRecipe.addEventListener('click', function(){
+  addRecipe.addEventListener("click", function () {
     recipeText.insertAdjacentHTML("beforeend", addRecipeElement.outerHTML);
   });
-  
+
   // let remove = document.querySelectorAll(".except-btn");
   // document.on('click', ".except-btn", function(){
   //   console.log("ok")
   // });
-};
-window.addEventListener('load', add);
+}
+window.addEventListener("load", add);

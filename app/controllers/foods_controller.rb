@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+
   def index
     @foods = Food.includes(:user)
   end
@@ -15,6 +16,11 @@ class FoodsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @food = Food.find(params[:id])
+    @ingredients = Ingredient.where(food_id: params[:id])
   end
 
   private
