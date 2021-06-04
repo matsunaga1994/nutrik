@@ -1,4 +1,11 @@
-/* 商品の概要 */
+.chart {
+  /* padding-top: 15vh; */
+  /* height: 50vh; */
+}
+
+.food-main {
+  display: flex;
+}
 
 .item-show {
   background-color: #f8f8f8;
@@ -23,13 +30,13 @@
   text-align: center;
   font-weight: bold;
   font-size: 25px;
+  background-color: #f5f5f5;
+  margin-bottom: 5vh;
+  width: 100%;
 }
 
-.item-box-img {
+.food-box-img {
   height: 50vh;
-  width: 60vw;
-  min-height: 500px;
-  background-color: rgb(205, 202, 202);
   object-fit: contain;
 }
 
@@ -41,8 +48,7 @@
 }
 
 .item-price-box>.item-price {
-  font-size: 4vh;
-  font-weight: bold;
+  font-size: 16px;
 }
 
 .item-price-box>.item-postage {
@@ -50,27 +56,29 @@
 }
 
 
-.item-red-btn {
+.food-edit {
   text-align: center;
-  background-color: #ea352d;
+  background-color: orange;
   font-size: 24px;
   font-weight: bold;
   color: #FFF;
   margin: 20px 0px;
   padding: 2vh 10vw;
+  border-radius: 100px;
 }
 
 .or-text {
   font-size: 20px;
 }
 
-.item-destroy {
+.food-destroy {
   background-color: lightgray;
   text-align: center;
   font-size: 24px;
   color: black;
   margin: 20px 0px;
   padding: 2vh 10vw;
+  border-radius: 100px;
 }
 
 .item-explain-box {
@@ -136,72 +144,4 @@
 
 .report-flag-icon {
   margin-right: 5px;
-}
-
-
-/* /商品の概要 */
-
-.comment-box {
-  width: 40vw;
-  background-color: #fff;
-  margin: 5vh 0;
-  text-align: center;
-}
-
-.comment-text {
-  width: 100%;
-  height: 100px;
-  padding: 10px;
-  border: solid 2px #dedede;
-  resize: none;
-}
-
-.comment-warn {
-  padding: 10px;
-  font-size: 14px;
-  margin: 10px 0px;
-  text-align: left;
-}
-
-.comment-btn {
-  line-height: 48px;
-  background-color: #3CCACE;
-  border: 1px solid #3CCACE;
-  color: #fff;
-  width: 50%;
-  min-width: 150px;
-  font-size: 18px;
-  border-radius: 100px;
-  margin-bottom: 2vh;
-}
-
-.comment-flag {
-  display: flex;
-  justify-content: center;
-}
-
-.comment-flag-icon {
-  margin: 10px 5px 0 0;
-}
-
-.links {
-  display: flex;
-  justify-content: space-between;
-  width: 50vw;
-
-}
-
-.change-item-btn {
-  font-size: 30px;
-  text-decoration: none;
-  color: #3CCACE;
-}
-
-.another-item {
-  display: block;
-  margin: 30px 0px 8px;
-  color: #3CCACE;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 23px;
 }
