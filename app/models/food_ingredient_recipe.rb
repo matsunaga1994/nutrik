@@ -1,6 +1,6 @@
 class FoodIngredientRecipe
   include ActiveModel::Model
-  attr_accessor :title, :image, :cook_time_id, :cost_id, :comment, :user_id, :name, :food_group_id, :text
+  attr_accessor :title, :image, :cook_time_id, :cost_id, :comment, :user_id, :serving, :amount, :name, :food_group_id, :text
 
   with_options presence: true do
     validates :title
@@ -9,6 +9,8 @@ class FoodIngredientRecipe
     validates :cost_id
     validates :comment
     validates :user_id
+    validates :serving
+    validates :amount
     validates :name
     validates :food_group_id
     validates :text 
@@ -16,21 +18,22 @@ class FoodIngredientRecipe
   end
 
   def save
-    food = Food.create(title: title, image: image, cook_time_id: cook_time_id, cost_id: cost_id, comment: comment, user_id: user_id)
+    food = Food.create(title: title, image: image, cook_time_id: cook_time_id, cost_id: cost_id, comment: comment, user_id: user_id, serving: serving)
     # Ingredient.create(name: name, food_group_id: food_group_id, food_id: food.id)
     name.length.times do |i|
       ingredient = Ingredient.new
       ingredient.food_id = food.id
       ingredient.name = name[i]
       ingredient.food_group_id = food_group_id[i]
-      ingredient.save!
+      ingredient.amount = amount[i]
+      ingredient.save
     end
     # Recipe.create(text: text, food_id: food.id)
     text.length.times do |i|
       recipe = Recipe.new
       recipe.food_id = food.id
       recipe.text = text[i]
-      recipe.save!
+      recipe.save
     end
   end
 end

@@ -6,6 +6,7 @@ class CreateFoods < ActiveRecord::Migration[6.0]
       t.integer :cost_id, null: false
       t.text :comment,    null: false
       t.references :user,  null: false, foreign_key: true
+      t.string :serving,        null: false
       t.timestamps
     end
   end
