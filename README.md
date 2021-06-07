@@ -28,6 +28,7 @@
 | cost_id       | integer    | null: false                    |
 | comment       | text       | null: false                    |
 | user          | references | null: false, foreign_key: true |
+| serving       | string     | null: false                    |
 
 ### Association
 
@@ -63,10 +64,12 @@
 
 
 ## ingredients テーブル
+
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | name          | string     | null: false                    |
 | food_group_id | integer    | null: false                    |
+| amount        | string     | null: false                    |
 | food          | references | null: false, foreign_key: true |
 
 ### Association
@@ -75,6 +78,7 @@
 
 
 ## recipes テーブル
+
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | text          | text       | null: false                    |

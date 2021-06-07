@@ -23,7 +23,7 @@
   padding: 10vh 15vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .item-box>.name {
@@ -40,51 +40,32 @@
   object-fit: contain;
 }
 
-.item-price-box {
+.detail-top {
   margin: 25px 0px;
   display: flex;
-  align-items: center;
-  flex-direction: column;
 }
 
-.item-price-box>.item-price {
+
+.detail-top-first .cook-time {
+  font-size: 16px;
+  display: block;
+}
+
+.detail-top-first .cost {
+  font-size: 16px;
+  display: block;
+}
+
+.detail-top-second {
+  margin-left: 3vw;
   font-size: 16px;
 }
 
-.item-price-box>.item-postage {
-  font-size: 16px;
-}
 
-
-.food-edit {
-  text-align: center;
-  background-color: orange;
-  font-size: 24px;
-  font-weight: bold;
-  color: #FFF;
-  margin: 20px 0px;
-  padding: 2vh 10vw;
-  border-radius: 100px;
-}
-
-.or-text {
-  font-size: 20px;
-}
-
-.food-destroy {
-  background-color: lightgray;
-  text-align: center;
-  font-size: 24px;
-  color: black;
-  margin: 20px 0px;
-  padding: 2vh 10vw;
-  border-radius: 100px;
-}
-
-.item-explain-box {
+.ingredient-explain-box {
   font-size: 18px;
-  margin: 40px 0px;
-  overflow-wrap: anywhere;
+  margin-top: 40px;
+  font-weight: bold;
 }
 
 .detail-table {
@@ -92,25 +73,27 @@
   width: 100%;
 }
 
-.detail-item {
+.detail-table tr:nth-child(odd) td{
+  background-color: #FFF;
+}
+
+.detail-table tr:nth-child(even) td{
+  background-color: #eee;
+}
+
+.ingredient-name {
   width: 20%;
   background-color: #eee;
-  border: 1px solid #dedede;
   font-size: 14px;
-  text-align: center;
+  text-align: left;
+  padding-left: 3vw;
 }
 
-.detail-value {
+.ingredient-amount {
   width: 80%;
-  padding: 20px;
-  border: 1px solid #dedede;
+  padding: 20px 3vw 20px 20px;
   font-size: 14px;
-}
-
-.option {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
+  text-align: end;
 }
 
 .favorite-btn {
@@ -122,26 +105,63 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .favorite-star-icon {
   margin-right: 5px;
 }
 
-.report-btn {
-  border-radius: 40px;
-  width: 15vw;
-  min-width: 200px;
-
-  padding: 1vh 0;
-  color: black;
-  border: 2px solid #2d2d2d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.how-to-cook {
+  font-size: 18px;
+  margin-top: 40px;
+  font-weight: bold;
+  margin-bottom: 2vh;
 }
 
-.report-flag-icon {
-  margin-right: 5px;
+.recipe-index {
+  width: 32px;
+  height: 32px;
+  background-color:orange;
+  color: white;
+  font-size: 20px;
+  border-radius: 4px;
+  padding-left: 0.6vw;
+}
+
+.detail-table .recipe-text {
+  width: 80%;
+  padding: 20px 3vw 20px 20px;
+  font-size: 14px;
+  text-align:start;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.food-edit {
+  text-align: center;
+  background-color: orange;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 20px 20px;
+  padding: 2vh 7vw;
+  border-radius: 100px;
+}
+
+
+.food-destroy {
+  background-color: lightgray;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  margin: 20px 20px;
+  padding: 2vh 7vw;
+  border-radius: 100px;
+}
+
+.edit-destroy {
+  display: flex;
+  justify-content: center;
 }

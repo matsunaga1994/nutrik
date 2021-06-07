@@ -39,15 +39,17 @@ ActiveRecord::Schema.define(version: 2021_05_31_055646) do
     t.integer "cost_id", null: false
     t.text "comment", null: false
     t.bigint "user_id", null: false
+    t.string "serving", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
   create_table "ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.integer "food_group_id"
-    t.bigint "food_id"
+    t.string "name", null: false
+    t.integer "food_group_id", null: false
+    t.string "amount", null: false
+    t.bigint "food_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["food_id"], name: "index_ingredients_on_food_id"

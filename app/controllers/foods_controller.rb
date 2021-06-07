@@ -21,10 +21,12 @@ class FoodsController < ApplicationController
   def show
     @food = Food.find(params[:id])
     @ingredients = Ingredient.where(food_id: params[:id])
+    @food_group = @ingredients.group(:food_group_id).count
+    @recipes = Recipe.where(food_id: params[:id])
   end
 
   private
   def food_params
-    params.require(:food_ingredient_recipe).permit(:title, :image, :cook_time_id, :cost_id, :comment, :food_group_id, name: [], food_group_id: [], text: []).merge(user_id: current_user.id)
+    params.require(:food_ingredient_recipe).permit(:title, :image, :cook_time_id, :cost_id, :comment, :serving, amount: [], name: [], food_group_id: [], text: []).merge(user_id: current_user.id)
   end
 end
