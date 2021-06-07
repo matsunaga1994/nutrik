@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   }
   root to: "foods#index"
   resources :foods
-  resources :users, only:[:new]
+  resources :users, only:[:new, :show]
 end
