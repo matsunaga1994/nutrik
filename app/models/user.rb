@@ -29,8 +29,8 @@ class User < ApplicationRecord
     validates :first_name_kana
   end
 
-  has_many :sns_credentials
-  has_many :foods
+  has_many :sns_credentials, dependent: :destroy
+  has_many :foods, dependent: :destroy
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
