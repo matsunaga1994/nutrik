@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: "foods#index"
-  resources :foods
+  resources :foods do
+    resources :likes, only:[:create, :destroy]
+  end
   resources :users, only:[:new, :show]
 end
