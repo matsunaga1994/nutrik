@@ -1,0 +1,76 @@
+<%= render "shared/header" %>
+
+<div class="item-show">
+  <div class="item-box">
+    <h1 class="nickname">
+      <%= current_user.nickname %>さんのマイページ
+    </h1>
+    <h2 class="name">
+      投稿一覧
+    </h2>
+
+    <div class='food-contents'>
+      <ul class='food-lists'>
+        <% @foods.each do |food| %>
+          <li class='list'>
+            <%= link_to food_path(food.id) do %>
+              <div class='food-img-content'>
+                <%= image_tag food.image, class: "food-img" %>
+              </div>
+              <div class='food-info'>
+                <h3 class='food-name'>
+                  <%= food.title %>
+                </h3>
+                <div class='food-time-cost'>
+                  <span><%= food.cook_time.name %><br><%= food.cost.name %></span>
+                  <div class='star-btn'>
+                    <%= image_tag "star.png", class:"star-icon" %>
+                    <span class='star-count'>0</span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>  
+      </ul>
+    </div>
+
+    <h2 class="name">
+      お気に入り一覧
+    </h2>
+
+    <div class='food-contents'>
+      <ul class='food-lists'>
+        <% @foods.each do |food| %>
+          <li class='list'>
+            <%= link_to food_path(food.id) do %>
+              <div class='food-img-content'>
+                <%= image_tag food.image, class: "food-img" %>
+              </div>
+              <div class='food-info'>
+                <h3 class='food-name'>
+                  <%= food.title %>
+                </h3>
+                <div class='food-time-cost'>
+                  <span><%= food.cook_time.name %><br><%= food.cost.name %></span>
+                  <div class='star-btn'>
+                    <%= image_tag "star.png", class:"star-icon" %>
+                    <span class='star-count'>0</span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>  
+      </ul>
+    </div>
+
+  </div>
+</div>  
+
+<%= link_to(new_food_path, class: 'recipe-btn') do %>
+  <span class='recipe-btn-text'>レシピ投稿</span>
+  <%= image_tag 'post.png' , size: '185x50' ,class: "recipe-btn-icon" %>
+<% end %>
+
+<%= render "shared/footer" %>
