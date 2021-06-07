@@ -84,28 +84,26 @@
     <div class="how-to-cook">
       作り方
     </div>
-      <% @recipes.each_with_index do |recipe, index| %>
-        <div class="recipe-index"><%= index + 1 %></div>
-        <table class="detail-table">
-          <tbody>
-            <tr>
-              <td class="recipe-text"><%= recipe.text %></td>
-            </tr>
-          </tbody>
-        </table>
-      <% end %>
+    <% @recipes.each_with_index do |recipe, index| %>
+      <div class="recipe-index"><%= index + 1 %></div>
+      <table class="detail-table">
+        <tbody>
+          <tr>
+            <td class="recipe-text"><%= recipe.text %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
     <%# /作り方 %>
-
-    <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-<div class="edit-destroy">
-    <%= link_to "編集", "#", method: :get, class: "food-edit" %>
-    <%= link_to "削除", "#", method: :delete, class:"food-destroy" %>
-</div>
-    <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-
+    <% if user_signed_in? %>
+      <% if current_user.id == @food.user_id %>
+        <div class="edit-destroy">
+          <%= link_to "編集", "#", method: :get, class: "food-edit" %>
+          <%= link_to "削除", food_path(@food.id), method: :delete, class:"food-destroy" %>
+        </div>
+      <% end %>
+    <% end%>  
   </div>
 </div>  
-  <%# /商品の概要 %>
-
 
 <%= render "shared/footer" %>
