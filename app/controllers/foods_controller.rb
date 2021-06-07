@@ -18,6 +18,13 @@ class FoodsController < ApplicationController
     end
   end
 
+  def destroy
+    food = Food.find(params[:id])
+    food.destroy
+    redirect_to root_path
+    # マイページ実装後パス変更
+  end
+
   def show
     @food = Food.find(params[:id])
     @ingredients = Ingredient.where(food_id: params[:id])
