@@ -31,6 +31,8 @@ class User < ApplicationRecord
 
   has_many :sns_credentials, dependent: :destroy
   has_many :foods, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_foods, through: :likes, source: :food
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
@@ -43,5 +45,9 @@ class User < ApplicationRecord
       sns.save
     end
     { user: user, sns: sns }
+  end
+
+  def already_liked?(food)
+    self.likes.exists?(food_id: food.id)    
   end
 end
