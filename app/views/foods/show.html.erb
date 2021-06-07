@@ -1,11 +1,11 @@
 <%= render "shared/header" %>
 
-<%# 商品の概要 %>
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
       <%= @food.title %>
     </h2>
+
     <div class="food-main">
       <div class="food-img-content">
         <%= image_tag @food.image ,class:"food-box-img" %>
@@ -95,6 +95,7 @@
       </table>
     <% end %>
     <%# /作り方 %>
+    
     <% if user_signed_in? %>
       <% if current_user.id == @food.user_id %>
         <div class="edit-destroy">
