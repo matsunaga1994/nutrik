@@ -69,7 +69,6 @@
 | ------------- | ---------- | ------------------------------ |
 | name          | string     | null: false                    |
 | food_group_id | integer    | null: false                    |
-| serving       | string     | null: false                    |
 | amount        | string     | null: false                    |
 | food          | references | null: false, foreign_key: true |
 
