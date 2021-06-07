@@ -137,12 +137,39 @@
 
 /* 材料 */
 
-.ingredient-detail {
-  display: flex;
-  align-items: center;
+.serving {
+  margin-bottom: 3vh;
+  width: 100%;
 }
 
-.ingredient-text {
+.serving .ingredient-text {
+  width: 105px;
+  height: 46px;
+  font-size: 16px;
+  padding: 2px 8px
+}
+
+.serving-text {
+  font-size: 16px;
+}
+
+.ingredient-main-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 16px 2%;
+}
+
+.ingredient-info {
+  width: calc(100% - 30px);
+  padding: 0 2% 0 0;
+}
+
+.ingredient-detail {
+  display: flex;
+}
+
+.form .ingredient-text {
   width: 100%;
   height: 30px;
   border-radius: 4px;
@@ -150,6 +177,7 @@
   font-size: 16px;
   resize: none;
   padding-left: 10px;
+  display: block;
 }
 
 .ingredient-detail>.form {
@@ -157,12 +185,25 @@
   margin: 2vh 1vw 2vh 0;
 }
 
-.second-select-box {
-  height: 30px;
+.food-group {
   width: 100%;
+  margin-bottom: 16px;
+}
+
+.food-group .second-select-box {
+  width: 97.25%;
+  height: 30px;
   background-color: #f5f5f5;
   padding-left: 10px;
   border-radius: 4px;
+}
+
+.form {
+  flex-basis: calc(98%*1/2);
+}
+
+.form:first-child {
+  margin-right: 2%;
 }
 
 .add-btn-content {

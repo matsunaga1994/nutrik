@@ -28,6 +28,7 @@
 | cost_id       | integer    | null: false                    |
 | comment       | text       | null: false                    |
 | user          | references | null: false, foreign_key: true |
+| serving       | string     | null: false                    |
 
 ### Association
 

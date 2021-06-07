@@ -1,8 +1,8 @@
 function add() {
   const addIngredient = document.getElementById("add-ingredient-btn");
-  const addElement = document.getElementById("ingredient-detail");
+  const addElement = document.getElementById("ingredient-main-inner");
+  const foodGroup = document.getElementById("food-group");
   let ingredientText = document.getElementById("ingredient-main");
-  // const form = document.getElementById("food_ingredient_recipe_name")
 
   addIngredient.addEventListener("click", function () {
     ingredientText.insertAdjacentHTML("beforeend", addElement.outerHTML);
@@ -16,9 +16,10 @@ function add() {
     recipeText.insertAdjacentHTML("beforeend", addRecipeElement.outerHTML);
   });
 
-  // let remove = document.querySelectorAll(".except-btn");
-  // document.on('click', ".except-btn", function(){
-  //   console.log("ok")
-  // });
+  const remove = document.querySelectorAll(".except-btn");
+  // const parent = remove.parentNode.parentNode;
+  remove.addEventListener('click', function(e){
+    console.log(e)
+  });
 }
 window.addEventListener("load", add);

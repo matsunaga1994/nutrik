@@ -13,7 +13,7 @@
 
       <%# チャート %>
       <div class="chart">
-        <canvas id="myChart" width="500"></canvas>
+        <canvas id="myChart" width="700"></canvas>
         <script>
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
@@ -24,9 +24,9 @@
             [
                 {
                 label: '６つの基礎食品群',
-                backgroundColor: 'rgba(102,255,129,0.2)',
-                borderColor: 'rgba(122,255,129,0.2)',
-                data: [2, 2, 3, 7, 5, 7]
+                backgroundColor: 'rgba(255,165,0,0.5)',
+                borderColor: 'rgba(255,165,0,0.2)',
+                data: [<%= @food_group[1] %>, <%= @food_group[2] %>, <%= @food_group[3] %>, <%= @food_group[4] %>, <%= @food_group[5]%>, <%= @food_group[6] %>]
                 },
             ]
           },
@@ -44,46 +44,68 @@
       <%# /チャート %>
     </div>
 
-    <div class="item-price-box">
-      <span class="item-price">
-        🕐<%= @food.cook_time.name%>
-      </span>
-      <span class="item-postage">
-        💴<%= @food.cost.name %>
-      </span>
+    <div class="detail-top">
+      <div class="detail-top-first">
+        <span class="cook_time">
+          🕐<%= @food.cook_time.name%>
+        </span>
+        <span class="cost">
+          💴<%= @food.cost.name %>
+        </span>
+      </div>
+      <div class="favorite-btn">
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入りに追加</span>
+      </div>
     </div>
+     <div class="detail-top-second">  
+        <span>
+          <%= @food.comment %>
+        </span>
+      </div>  
 
-    <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-
-    <%= link_to "編集", "#", method: :get, class: "food-edit" %>
-    <%= link_to "削除", "#", method: :delete, class:"food-destroy" %>
-
-    <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-
-    <div class="item-explain-box">
-      <span><%= "材料" %></span>
+    <%# 材料 %>
+    <div class="ingredient-explain-box">
+      材料（<span><%= @food.serving %></span>人分）
     </div>
     <table class="detail-table">
       <tbody>
         <% @ingredients.each do |ingredient| %>
           <tr>
-            <th class="detail-item"><%= ingredient.name %></th>
-            <td class="detail-value"><%= "出品者名" %></td>
+            <td class="ingredient-name"><%= ingredient.name %></td>
+            <td class="ingredient-amount"><%= ingredient.amount %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な料理の通報</span>
-      </div>
+    <%# /材料 %>
+
+    <%# 作り方 %>
+    <div class="how-to-cook">
+      作り方
     </div>
+      <% @recipes.each_with_index do |recipe, index| %>
+        <div class="recipe-index"><%= index + 1 %></div>
+        <table class="detail-table">
+          <tbody>
+            <tr>
+              <td class="recipe-text"><%= recipe.text %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    <%# /作り方 %>
+
+    <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
+<div class="edit-destroy">
+    <%= link_to "編集", "#", method: :get, class: "food-edit" %>
+    <%= link_to "削除", "#", method: :delete, class:"food-destroy" %>
+</div>
+    <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
+
   </div>
 </div>  
   <%# /商品の概要 %>
+
+
 <%= render "shared/footer" %>
