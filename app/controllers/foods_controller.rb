@@ -30,6 +30,7 @@ class FoodsController < ApplicationController
     @ingredients = Ingredient.where(food_id: params[:id])
     @food_group = @ingredients.group(:food_group_id).count
     @recipes = Recipe.where(food_id: params[:id])
+    @like = Like.new
   end
 
   private
