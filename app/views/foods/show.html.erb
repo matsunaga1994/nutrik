@@ -45,6 +45,7 @@
     </div>
 
     <div class="detail-top">
+
       <div class="detail-top-first">
         <span class="cook_time">
           🕐<%= @food.cook_time.name%>
@@ -53,16 +54,32 @@
           💴<%= @food.cost.name %>
         </span>
       </div>
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入りに追加</span>
-      </div>
+
+      <% if user_signed_in? && current_user.id != @food.user_id %>
+        <% if current_user.already_liked?(@food) %>
+          <div class="favorite-btn-added">
+            <%= link_to food_like_path(@food), method: :delete, class: "favorite-btn-inner" do %>
+              <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+              <div class="added-favorite">お気に入りに追加済み</div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="favorite-btn-add">
+            <%= link_to food_likes_path(@food), method: :post, class: "favorite-btn-inner" do %>
+              <%= image_tag "star-orange.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+              <div class="add-favorite">お気に入りに追加</div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+
     </div>
-     <div class="detail-top-second">  
-        <span>
-          <%= @food.comment %>
-        </span>
-      </div>  
+
+    <div class="detail-top-second">  
+      <span>
+        <%= @food.comment %>
+      </span>
+    </div>  
 
     <%# 材料 %>
     <div class="ingredient-explain-box">
@@ -96,14 +113,12 @@
     <% end %>
     <%# /作り方 %>
     
-    <% if user_signed_in? %>
-      <% if current_user.id == @food.user_id %>
-        <div class="edit-destroy">
-          <%= link_to "編集", "#", method: :get, class: "food-edit" %>
-          <%= link_to "削除", food_path(@food.id), method: :delete, class:"food-destroy" %>
-        </div>
-      <% end %>
-    <% end%>  
+    <% if user_signed_in? && current_user.id == @food.user_id %>
+      <div class="edit-destroy">
+        <%= link_to "編集", "#", method: :get, class: "food-edit" %>
+        <%= link_to "削除", food_path(@food.id), method: :delete, class:"food-destroy" %>
+      </div>
+    <% end %> 
   </div>
 </div>  
 
