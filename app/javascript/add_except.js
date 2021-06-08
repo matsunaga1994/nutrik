@@ -16,10 +16,10 @@ function add() {
     recipeText.insertAdjacentHTML("beforeend", addRecipeElement.outerHTML);
   });
 
-  const remove = document.querySelectorAll(".except-btn");
+  // const remove = document.querySelectorAll(".except-btn");
   // const parent = remove.parentNode.parentNode;
-  remove.addEventListener('click', function(e){
-    console.log(e)
-  });
+  // remove.addEventListener('click', function(e){
+  //   console.log(e)
+  // });
 }
 window.addEventListener("load", add);
