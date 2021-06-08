@@ -24,8 +24,8 @@
                 <div class='food-time-cost'>
                   <span><%= food.cook_time.name %><br><%= food.cost.name %></span>
                   <div class='star-btn'>
-                    <%= image_tag "star.png", class:"star-icon" %>
-                    <span class='star-count'>0</span>
+                    <%= image_tag "star-orange.png", class:"star-icon" %>
+                    <span class='star-count'><%= food.liked_users.count %></span>
                   </div>
                 </div>
               </div>
@@ -41,7 +41,7 @@
 
     <div class='food-contents'>
       <ul class='food-lists'>
-        <% @foods.each do |food| %>
+        <% @user.liked_foods.each do |food| %>
           <li class='list'>
             <%= link_to food_path(food.id) do %>
               <div class='food-img-content'>
@@ -54,8 +54,8 @@
                 <div class='food-time-cost'>
                   <span><%= food.cook_time.name %><br><%= food.cost.name %></span>
                   <div class='star-btn'>
-                    <%= image_tag "star.png", class:"star-icon" %>
-                    <span class='star-count'>0</span>
+                    <%= image_tag "star-orange.png", class:"star-icon" %>
+                    <span class='star-count'><%= food.liked_users.count %></span>
                   </div>
                 </div>
               </div>

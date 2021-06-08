@@ -72,8 +72,8 @@
               <div class='food-time-cost'>
                 <span><%= food.cook_time.name %><br><%= food.cost.name %></span>
                 <div class='star-btn'>
-                  <%= image_tag "star.png", class:"star-icon" %>
-                  <span class='star-count'>0</span>
+                  <%= image_tag "star-orange.png", class:"star-icon" %>
+                  <span class='star-count'><%= food.liked_users.count %></span>
                 </div>
               </div>
             </div>
