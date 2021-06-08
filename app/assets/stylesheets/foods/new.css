@@ -61,6 +61,11 @@
 /* /共通 */
 
 /* 料理画像 */
+.img-upload img {
+  width: 100%;
+  height: auto;
+}
+
 .img-upload {
   display: flex;
   justify-content: space-between;
@@ -221,7 +226,7 @@
 }
 
 .add-btn:hover{
-  background-color:#FDF5E6;
+  opacity: 0.7;
 }
 
 .except-btn {
