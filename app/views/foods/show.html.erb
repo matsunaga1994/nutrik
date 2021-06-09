@@ -118,7 +118,7 @@
     
     <% if user_signed_in? && current_user.id == @food.user_id %>
       <div class="edit-destroy">
-        <%= link_to "編集", "#", method: :get, class: "food-edit" %>
+        <%= link_to "編集", edit_food_path(@food.id), method: :get, class: "food-edit" %>
         <%= link_to "削除", food_path(@food.id), method: :delete, class:"food-destroy" %>
       </div>
     <% end %> 
