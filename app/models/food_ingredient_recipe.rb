@@ -1,10 +1,10 @@
 class FoodIngredientRecipe
   include ActiveModel::Model
-  attr_accessor :title, :image, :cook_time_id, :cost_id, :comment, :user_id, :serving, :amount, :name, :food_group_id, :text
+  attr_accessor :title, :images, :cook_time_id, :cost_id, :comment, :user_id, :serving, :amount, :name, :food_group_id, :text
 
   with_options presence: true do
     validates :title
-    validates :image
+    validates :images
     validates :cook_time_id
     validates :cost_id
     validates :comment
@@ -18,7 +18,7 @@ class FoodIngredientRecipe
   end
 
   def save
-    food = Food.create(title: title, image: image, cook_time_id: cook_time_id, cost_id: cost_id, comment: comment, user_id: user_id, serving: serving)
+    food = Food.create(title: title, images: images, cook_time_id: cook_time_id, cost_id: cost_id, comment: comment, user_id: user_id, serving: serving)
     # Ingredient.create(name: name, food_group_id: food_group_id, food_id: food.id)
     name.length.times do |i|
       ingredient = Ingredient.new

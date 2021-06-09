@@ -25,7 +25,9 @@
   <div class='feature-contents'>
     <ul class='feature-lists'>
       <li class='list'>
-        <%= image_tag "logo.png", class:"list-pict" %>
+        <div class="feature-image">
+          <%= image_tag "logo.png", class:"list-pict" %>
+        </div>  
         <h3 class='feature-list-text'>
           Nutrikとは
         </h3>
@@ -34,7 +36,9 @@
         </p>
       </li>
       <li class='list'>
-        <%= image_tag "ingredient-group.jpg", class:"list-pict" %>
+        <div class="feature-image">
+          <%= image_tag "ingredient-group.jpg", class:"list-pict" %>
+        </div>
         <h3 class='feature-list-text'>
           ６つの基礎食品とは
         </h3>
@@ -43,7 +47,9 @@
         </p>
       </li>
       <li class='list'>
-        <%= image_tag "chart.png", class:"list-pict" %>
+        <div class="feature-image">
+          <%= image_tag "chart.png", class:"list-pict" %>
+        </div>  
         <h3 class='feature-list-text'>
           Nutrikの特徴
         </h3>
@@ -55,6 +61,40 @@
   </div>
   <%# /Nutrikの特徴 %>
 
+  <%# TOP5 %>
+  <% if @foods.length >= 5 %>
+    <div class='food-contents'>
+      <h2 class='title'>人気レシピTOP５</h2>
+
+      <ul class='food-lists'>
+        <% @top_five.each.with_index(1) do |food, i| %>
+
+          <li class='list'>
+            <%= link_to food_path(food.id) do %>
+              <div class="top-five-text"><%= "第#{i}位" %> </div>
+              <div class='food-img-content'>
+                <%= image_tag food.images[0], class: "food-img" %>
+              </div>
+              <div class='food-info'>
+                <h3 class='food-name'>
+                  <%= food.title %>
+                </h3>
+                <div class='food-time-cost'>
+                  <span><%= food.cook_time.name %><br><%= food.cost.name %></span>
+                  <div class='star-btn'>
+                    <%= image_tag "star-orange.png", class:"star-icon" %>
+                    <span class='star-count'><%= food.liked_users.count %></span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%# /TOP5 %>
+
   <%# 料理一覧 %>
   <div class='food-contents'>
     <h2 class='title'>新規投稿レシピ</h2>
@@ -63,7 +103,7 @@
         <li class='list'>
           <%= link_to food_path(food.id) do %>
             <div class='food-img-content'>
-              <%= image_tag food.image, class: "food-img" %>
+              <%= image_tag food.images[0], class: "food-img" %>
             </div>
             <div class='food-info'>
               <h3 class='food-name'>
@@ -87,15 +127,15 @@
       <% if @foods.blank? %>
         <li class='list'>
           <%= link_to '#' do %>
-          <%= image_tag "curry.jpeg", class: "item-img" %>
-          <div class='item-info'>
-            <h3 class='item-name'>
+          <%= image_tag "curry.jpeg", class: "food-img" %>
+          <div class='food-info'>
+            <h3 class='food-name'>
               料理を投稿してね！
             </h3>
-            <div class='item-price'>
+            <div class='food-time-cost'>
               <span>約30分<br>500円前後</span>
               <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
+                <%= image_tag "star-orange.png", class:"star-icon" %>
                 <span class='star-count'>0</span>
               </div>
             </div>
