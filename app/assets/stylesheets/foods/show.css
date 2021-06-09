@@ -1,13 +1,9 @@
-.chart {
-  /* padding-top: 15vh; */
-  /* height: 50vh; */
-}
-
 .food-main {
   display: flex;
+  height: 50vh;
 }
 
-.item-show {
+.food-show {
   background-color: #f8f8f8;
   width: 100vw;
   display: flex;
@@ -16,7 +12,7 @@
   padding: 5vh 0;
 }
 
-.item-box {
+.food-box {
   background-color: #FFF;
   width: 70vw;
   min-width: 1200px;
@@ -26,7 +22,7 @@
   /* align-items: center; */
 }
 
-.item-box>.name {
+.food-box>.name {
   text-align: center;
   font-weight: bold;
   font-size: 25px;
@@ -197,4 +193,9 @@
 
 .favorite-btn-inner:hover{
   opacity: 0.7;
+}
+
+.food-img-content {
+  margin-right: 20%;
+  width: 40% !important;
 }
