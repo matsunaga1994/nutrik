@@ -28,7 +28,7 @@
             <p>
               クリックしてファイルをアップロード
             </p>
-            <%= f.file_field :image, id:"foods-image" %>
+            <%= f.file_field :images, name: "food_ingredient_recipe[images][]", id:"foods-image" %>
             <div id="image-list"></div>
           </div>
         </div>

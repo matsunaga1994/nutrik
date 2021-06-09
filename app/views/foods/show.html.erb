@@ -1,19 +1,21 @@
 <%= render "shared/header" %>
 
-<div class="item-show">
-  <div class="item-box">
+<div class="food-show">
+  <div class="food-box">
     <h2 class="name">
       <%= @food.title %>
     </h2>
 
     <div class="food-main">
-      <div class="food-img-content">
-        <%= image_tag @food.image ,class:"food-box-img" %>
+      <div class="food-img-content" id="food-img-content">
+        <% @food.images.each do |image| %>
+          <div style="background-image: url(<%= url_for(image) %>)"></div>
+        <% end %>
       </div>
 
       <%# チャート %>
       <div class="chart">
-        <canvas id="myChart" width="700"></canvas>
+        <canvas id="myChart" ></canvas>
         <script>
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
@@ -31,6 +33,7 @@
             ]
           },
           options: {
+              maintainAspectRatio: false,
               scale: {
                   ticks: {
                       suggestedMin: 0,

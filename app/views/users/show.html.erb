@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 
-<div class="item-show">
-  <div class="item-box">
+<div class="food-show">
+  <div class="food-box">
     <h1 class="nickname">
       <%= current_user.nickname %>さんのマイページ
     </h1>
@@ -15,7 +15,7 @@
           <li class='list'>
             <%= link_to food_path(food.id) do %>
               <div class='food-img-content'>
-                <%= image_tag food.image, class: "food-img" %>
+                <%= image_tag food.images[0], class: "food-img" %>
               </div>
               <div class='food-info'>
                 <h3 class='food-name'>
@@ -45,7 +45,7 @@
           <li class='list'>
             <%= link_to food_path(food.id) do %>
               <div class='food-img-content'>
-                <%= image_tag food.image, class: "food-img" %>
+                <%= image_tag food.images[0], class: "food-img" %>
               </div>
               <div class='food-info'>
                 <h3 class='food-name'>
