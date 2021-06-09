@@ -1,4 +1,3 @@
-<%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
   <div class='nutrik-icon'>
     <%= link_to "/" do %>
@@ -18,26 +17,26 @@
       <div class='my-page'>
         <%= link_to user_path(current_user.id) do %>
           <%= image_tag("mypage.png") %>
-          <div>マイページ</div>
+          <div class="header-icon-text">マイページ</div>
         <% end %>
       </div>
       <div class='logout'>
         <%= link_to destroy_user_session_path, method: :delete  do %>
           <%= image_tag("logout.png") %>
-          <div>ログアウト</div>
+          <div class="header-icon-text">ログアウト</div>
         <% end %>  
       </div>
     <% else %>  
       <div class='login'>
         <%= link_to new_user_session_path do %>
           <%= image_tag("login.png") %>
-          <div>ログイン</div>
+          <div class="header-icon-text">ログイン</div>
         <% end %>
       </div>
       <div class='sign_up'>
         <%= link_to new_user_path do %>
           <%= image_tag("sign_up.png") %>
-          <div>新規登録</div>
+          <div class="header-icon-text">新規登録</div>
         <% end %>
       </div>
     <% end %>  
