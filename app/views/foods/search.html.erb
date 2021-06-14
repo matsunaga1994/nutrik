@@ -1,0 +1,37 @@
+<%= render "shared/header" %>
+
+<div class="food-show">
+  <div class="food-box">
+    <h2 class="name">
+      <%= "#{params[:keyword]}のレシピ・作り方一覧"%>
+    </h2>
+
+    <div class='food-contents'>
+      <ul class='food-lists'>
+        <% @foods.each do |food| %>
+          <li class='list'>
+            <%= link_to food_path(food.id) do %>
+              <div class='food-img-content'>
+                <%= image_tag food.images[0], class: "food-img" %>
+              </div>
+              <div class='food-info'>
+                <h3 class='food-name'>
+                  <%= food.title %>
+                </h3>
+                <div class='food-time-cost'>
+                  <span><%= food.cook_time.name %><br><%= food.cost.name %></span>
+                  <div class='star-btn'>
+                    <%= image_tag "star-orange.png", class:"star-icon" %>
+                    <span class='star-count'><%= food.liked_users.count %></span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>  
+      </ul>
+    </div>
+  </div>
+</div>  
+
+<%= render "shared/footer" %>
