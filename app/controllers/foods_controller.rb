@@ -1,7 +1,8 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update]
 
   def index
-    @foods = Food.includes(:user)
+    @foods = Food.includes(:user).order("created_at DESC")
     if @foods.length >= 5
       @top_five = Food.find(Like.group(:food_id).order("count(food_id) DESC").limit(5).pluck(:food_id))
     end
@@ -12,9 +13,17 @@ class FoodsController < ApplicationController
   end
 
   def create
+    name = params[:name]
+    food_group_id = params[:food_group_id]
+    amount = params[:amount]
+    text = params[:text]
     @food = FoodIngredientRecipe.new(food_params)
-    if @food.valid?
-      @food.save
+
+    @food.valid?
+    FoodIngredientRecipe.check_various(name, food_group_id, amount, text, @food)
+
+    if @food.errors.blank?
+      @food.save(name, food_group_id, amount, text)
       redirect_to root_path
     else
       render :new
@@ -24,8 +33,30 @@ class FoodsController < ApplicationController
   def destroy
     food = Food.find(params[:id])
     food.destroy
-    redirect_to root_path
-    # マイページ実装後パス変更
+    redirect_to controller: 'users', action: 'show', id: current_user.id
+  end
+
+  def edit
+    @food = Food.find(params[:id])
+  end
+
+  def update
+    # food = Food.find(params[:id])
+    # name = params[:name]
+    # food_group_id = params[:food_group_id]
+    # amount = params[:amount]
+    # text = params[:text]
+
+    # food.valid?
+    # FoodIngredientRecipe.check_various(name, food_group_id, amount, text, food)
+
+    # if food.errors.blank?
+    #   food.update_food(food)
+    #   ##ここら辺からごちゃごちゃで、、、
+    #   redirect_to controller: 'users', action: 'show', id: current_user.id
+    # else
+    #   render :edit
+    # end
   end
 
   def show
@@ -38,6 +69,6 @@ class FoodsController < ApplicationController
 
   private
   def food_params
-    params.require(:food_ingredient_recipe).permit(:title, :cook_time_id, :cost_id, :comment, :serving, amount: [], name: [], food_group_id: [], text: [], images: []).merge(user_id: current_user.id)
+    params.require(:food_ingredient_recipe).permit(:title, :cook_time_id, :cost_id, :comment, :serving, images: []).merge(user_id: current_user.id)
   end
 end
