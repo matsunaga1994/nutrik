@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<%= form_with model: @food, url: foods_path, local: true do |f| %>
+<%= form_with model: @food, local: true do |f| %>
   <div class="foods-menu-contents">
     <div class="foods-menu-main">
       <h2 class="foods-menu-title">レシピ投稿</h2>
@@ -78,26 +78,28 @@
         </div> 
 
         <div id="ingredient-main">
-          <div class="ingredient-main-inner" id="ingredient-main-inner">
-            <div class="ingredient-info" id="ingredient-info">
-              <div class="food-group" id="food-group">
-                <%= f.collection_select(:food_group_id, FoodGroup.all, :id, :name, { include_blank: "選択してください" }, {class:"second-select-box", name: "food_group_id[]"}) %>
+          <% @food.ingredients.each do |food| %>
+            <div class="ingredient-main-inner" id="ingredient-main-inner">
+              <div class="ingredient-info" id="ingredient-info">
+                <div class="food-group" id="food-group">
+                  <%= f.collection_select(:food_group_id, FoodGroup.all, :id, :name, { include_blank: "選択してください", selected: food.food_group_id }, {class:"second-select-box", name: "food_group_id[]"}) %>
+                </div>
+                <div class="ingredient-detail" id="ingredient-detail">
+                  <div class="form">
+                    <%= f.text_field :name, name: "name[]", value: food.name, class:"ingredient-text", placeholder:"例）にんじん", maxlength:"20" %>
+                  </div> 
+                  <div class="form">          
+                    <%= f.text_field :amount, name: "amount[]", value: food.amount, class:"ingredient-text", placeholder:"例）2本", maxlength:"20" %>
+                  </div> 
+                </div>
+              </div>  
+              <div class="except">
+                <button type="button" class="except-btn" id="except-btn">
+                  <%= image_tag("trash.png") %>
+                </button>
               </div>
-              <div class="ingredient-detail" id="ingredient-detail">
-                <div class="form">          
-                  <%= f.text_field :name, name: "name[]", class:"ingredient-text", placeholder:"例）にんじん", maxlength:"20" %>
-                </div> 
-                <div class="form">          
-                  <%= f.text_field :amount, name: "amount[]", class:"ingredient-text", placeholder:"例）2本", maxlength:"20" %>
-                </div> 
-              </div>
-            </div>  
-            <div class="except">
-              <button type="button" class="except-btn" id="except-btn">
-                <%= image_tag("trash.png") %>
-              </button>
             </div>
-          </div>
+          <% end %>  
         </div>
 
         <div class="add-btn-content">
@@ -112,16 +114,18 @@
           作り方
           <span class="indispensable">必須</span>
         </div>
-        <div class="recipe" id="food-recipe">
-          <div class="form">
-            <%= f.text_area :text, name: "text[]", class:"recipe-text", placeholder:"例） 玉ねぎは１cmの厚さの輪切りにし、小麦粉大さじ１をまぶす。" ,rows:"4" ,maxlength:"100" %>
-          </div> 
-          <div class="except">
-            <button type="button" class="except-btn" id="except-btn">
-              <%= image_tag("trash.png") %>
-            </button>
+        <% @food.recipes.each do |text| %>
+          <div class="recipe" id="food-recipe">
+            <div class="form">
+              <%= f.text_area :text, value: text.text, name: "text[]", class:"recipe-text", placeholder:"例） 玉ねぎは１cmの厚さの輪切りにし、小麦粉大さじ１をまぶす。" ,rows:"4" ,maxlength:"100" %>
+            </div> 
+            <div class="except">
+              <button type="button" class="except-btn" id="except-btn">
+                <%= image_tag("trash.png") %>
+              </button>
+            </div>
           </div>
-        </div>  
+        <% end %>
       </div>
       <div class="add-btn-content">
         <input type="button" value="＋ 作り方を追加する" class="add-btn" id="add-recipe-btn" >
@@ -139,8 +143,8 @@
 
       <%# 下部ボタン %>
       <div class="post-btn-contents">
-        <%= f.submit "投稿する", class:"post-btn" %>
-        <%= link_to 'もどる', root_path, class:"back-btn" %>
+        <%= f.submit "変更する", class:"post-btn" %>
+        <%= link_to 'もどる', food_path(@food.id), class:"back-btn" %>
       </div>
       <%# /下部ボタン %>
     </div>
