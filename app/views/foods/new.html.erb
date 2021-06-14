@@ -81,14 +81,14 @@
           <div class="ingredient-main-inner" id="ingredient-main-inner">
             <div class="ingredient-info" id="ingredient-info">
               <div class="food-group" id="food-group">
-                <%= f.collection_select(:food_group_id, FoodGroup.all, :id, :name, { include_blank: "選択してください" }, {class:"second-select-box", name: "food_ingredient_recipe[food_group_id][]"}) %>
+                <%= f.collection_select(:food_group_id, FoodGroup.all, :id, :name, { include_blank: "選択してください" }, {class:"second-select-box", name: "food_group_id[]"}) %>
               </div>
               <div class="ingredient-detail" id="ingredient-detail">
                 <div class="form">          
-                  <%= f.text_field :name, name: "food_ingredient_recipe[name][]", class:"ingredient-text", placeholder:"例）にんじん", maxlength:"20" %>
+                  <%= f.text_field :name, name: "name[]", class:"ingredient-text", placeholder:"例）にんじん", maxlength:"20" %>
                 </div> 
                 <div class="form">          
-                  <%= f.text_field :amount, name: "food_ingredient_recipe[amount][]", class:"ingredient-text", placeholder:"例）2本", maxlength:"20" %>
+                  <%= f.text_field :amount, name: "amount[]", class:"ingredient-text", placeholder:"例）2本", maxlength:"20" %>
                 </div> 
               </div>
             </div>  
@@ -114,7 +114,7 @@
         </div>
         <div class="recipe" id="food-recipe">
           <div class="form">
-            <%= f.text_area :text, name: "food_ingredient_recipe[text][]", class:"recipe-text", placeholder:"例） 玉ねぎは１cmの厚さの輪切りにし、小麦粉大さじ１をまぶす。" ,rows:"4" ,maxlength:"100" %>
+            <%= f.text_area :text, name: "text[]", class:"recipe-text", placeholder:"例） 玉ねぎは１cmの厚さの輪切りにし、小麦粉大さじ１をまぶす。" ,rows:"4" ,maxlength:"100" %>
           </div> 
           <div class="except">
             <button type="button" class="except-btn" id="except-btn">
