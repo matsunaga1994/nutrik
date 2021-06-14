@@ -104,8 +104,8 @@
     <div class="how-to-cook">
       作り方
     </div>
-    <% @recipes.each_with_index do |recipe, index| %>
-      <div class="recipe-index"><%= index + 1 %></div>
+    <% @recipes.each.with_index(1) do |recipe, i| %>
+      <div class="recipe-index"><%= i %></div>
       <table class="detail-table">
         <tbody>
           <tr>
