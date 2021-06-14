@@ -67,6 +67,10 @@ class FoodsController < ApplicationController
     @like = Like.new
   end
 
+  def search
+    @foods = Food.search(params[:keyword])
+  end
+
   private
   def food_params
     params.require(:food_ingredient_recipe).permit(:title, :cook_time_id, :cost_id, :comment, :serving, images: []).merge(user_id: current_user.id)

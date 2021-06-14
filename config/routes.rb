@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   root to: "foods#index"
   resources :foods do
     resources :likes, only:[:create, :destroy]
+    collection do
+      get 'search'
+    end
   end
   resources :users, only:[:new, :show]
 end
