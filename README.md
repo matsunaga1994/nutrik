@@ -53,7 +53,10 @@ https://nutrik.herokuapp.com/
 
 ## 5.料理検索機能
 ヘッダーにある検索フォームに料理名を入力することで検索ができます。
-[![Image from Gyazo](https://i.gyazo.com/5c8ecfa770e7de9c22410979f9295898.gif)](https://gyazo.com/5c8ecfa770e7de9c22410979f9295898)
+![検索](https://user-images.githubusercontent.com/82854197/121999107-da631c80-cde7-11eb-9e9a-016deab43216.jpeg)
+![検索２](https://user-images.githubusercontent.com/82854197/121998685-39746180-cde7-11eb-8d5a-e4c3778e7b24.jpeg)
+
+
 
 ## 6.料理の編集・削除機能
 編集機能については、現在実装中になります。
@@ -85,7 +88,8 @@ VScord
 
 # DB設計
 
-![nutrik](https://user-images.githubusercontent.com/82854197/121978466-38c9d400-cdc3-11eb-9ac5-45f45d2a2c52.png)
+![nutrik](https://user-images.githubusercontent.com/82854197/121998062-3d53b400-cde6-11eb-9d1c-d26723f16f64.png)
+
 
 
 ## users テーブル
