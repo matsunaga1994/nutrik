@@ -79,16 +79,17 @@ GitHub, GitHubDesktop
 rspec  
 VScord
 
-# 今後実装したい機能
+# 今後実装したい機能（課題）
 - いいね機能の非同期通信化
 - 料理画像を複数枚投稿する際、画像の順番を入れ替え・削除することができる機能
 - 投稿した料理の編集機能
 - ユーザーフォロー機能
 - 材料名で検索ができる機能
+- リファクタリング
 
 # DB設計
 
-![nutrik](https://user-images.githubusercontent.com/82854197/121998062-3d53b400-cde6-11eb-9d1c-d26723f16f64.png)
+![nutrik](https://user-images.githubusercontent.com/82854197/122146177-857be080-ce91-11eb-84a4-26f91385f838.png)
 
 
 
