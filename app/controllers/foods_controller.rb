@@ -13,17 +13,17 @@ class FoodsController < ApplicationController
   end
 
   def create
-    name = params[:name]
-    food_group_id = params[:food_group_id]
-    amount = params[:amount]
-    text = params[:text]
+    names = params[:names]
+    food_group_ids = params[:food_group_ids]
+    amounts = params[:amounts]
+    texts = params[:texts]
     @food = FoodIngredientRecipe.new(food_params)
 
     @food.valid?
-    FoodIngredientRecipe.check_various(name, food_group_id, amount, text, @food)
+    FoodIngredientRecipe.check_various(names, food_group_ids, amounts, texts, @food)
 
     if @food.errors.blank?
-      @food.save(name, food_group_id, amount, text)
+      @food.save(names, food_group_ids, amounts, texts)
       redirect_to root_path
     else
       render :new
@@ -52,7 +52,6 @@ class FoodsController < ApplicationController
 
     # if food.errors.blank?
     #   food.update_food(food)
-    #   ##ここら辺からごちゃごちゃで、、、
     #   redirect_to controller: 'users', action: 'show', id: current_user.id
     # else
     #   render :edit
