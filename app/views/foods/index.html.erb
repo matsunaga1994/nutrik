@@ -62,37 +62,35 @@
   <%# /Nutrikの特徴 %>
 
   <%# TOP5 %>
-  <% if @foods.length >= 5 %>
-    <div class='food-contents'>
-      <h2 class='title'>人気レシピTOP５</h2>
+  <div class='food-contents'>
+    <h2 class='title'>人気レシピTOP５</h2>
 
-      <ul class='food-lists'>
-        <% @top_five.each.with_index(1) do |food, i| %>
+    <ul class='food-lists'>
+      <% @top_five.each.with_index(1) do |food, i| %>
 
-          <li class='list'>
-            <%= link_to food_path(food.id) do %>
-              <div class="top-five-text"><%= "第#{i}位" %> </div>
-              <div class='food-img-content'>
-                <%= image_tag food.images[0], class: "food-img" %>
-              </div>
-              <div class='food-info'>
-                <h3 class='food-name'>
-                  <%= food.title %>
-                </h3>
-                <div class='food-time-cost'>
-                  <span><%= food.cook_time.name %><br><%= food.cost.name %></span>
-                  <div class='star-btn'>
-                    <%= image_tag "star-orange.png", class:"star-icon" %>
-                    <span class='star-count'><%= food.liked_users.count %></span>
-                  </div>
+        <li class='list'>
+          <%= link_to food_path(food.id) do %>
+            <div class="top-five-text"><%= "第#{i}位" %> </div>
+            <div class='food-img-content'>
+              <%= image_tag food.images[0], class: "food-img" %>
+            </div>
+            <div class='food-info'>
+              <h3 class='food-name'>
+                <%= food.title %>
+              </h3>
+              <div class='food-time-cost'>
+                <span><%= food.cook_time.name %><br><%= food.cost.name %></span>
+                <div class='star-btn'>
+                  <%= image_tag "star-orange.png", class:"star-icon" %>
+                  <span class='star-count'><%= food.liked_users.count %></span>
                 </div>
               </div>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
   <%# /TOP5 %>
 
   <%# 料理一覧 %>

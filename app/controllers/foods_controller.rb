@@ -3,9 +3,7 @@ class FoodsController < ApplicationController
 
   def index
     @foods = Food.includes(:user).order("created_at DESC")
-    if @foods.length >= 5
-      @top_five = Food.find(Like.group(:food_id).order("count(food_id) DESC").limit(5).pluck(:food_id))
-    end
+    @top_five = Food.find(Like.group(:food_id).order("count(food_id) DESC").limit(5).pluck(:food_id))
   end
 
   def new
