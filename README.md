@@ -88,8 +88,7 @@ VScord
 - リファクタリング
 
 # DB設計
-
-![nutrik](https://user-images.githubusercontent.com/82854197/122146177-857be080-ce91-11eb-84a4-26f91385f838.png)
+![nutrik](https://user-images.githubusercontent.com/82854197/149685067-20c73a46-3205-4b0f-ab35-e8105d2b5dc3.png)
 
 
 
@@ -117,10 +116,10 @@ VScord
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | title         | string     | null: false                    |
-| cook_time_id  | integer    | null: false                    |
-| cost_id       | integer    | null: false                    |
+| cook_time　　　　　　  | integer    | null: false                    |
+| cost　　　　　　       | integer    | null: false                    |
 | comment       | text       | null: false                    |
-| user          | references | null: false, foreign_key: true |
+| user_id       | references | null: false, foreign_key: true |
 | serving       | string     | null: false                    |
 
 ### Association
@@ -161,7 +160,7 @@ VScord
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | name          | string     | null: false                    |
-| food_group_id | integer    | null: false                    |
+| food_group　　　　　　 | integer    | null: false                    |
 | amount        | string     | null: false                    |
 | food          | references | null: false, foreign_key: true |
 
